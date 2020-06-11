@@ -1,0 +1,31 @@
+{
+  "name": "appstack-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opennpm/Appstack-generator.git"
+  },
+  "keywords": [
+    "bolier",
+    "plate",
+    "generator",
+    "express",
+    "angular",
+    "node",
+    "npm",
+    "react",
+    "bolier",
+    "plate"
+  ],
+  "author": "Deep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/opennpm/Appstack-generator/issues"
+  },
+  "homepage": "https://github.com/opennpm/Appstack-generator#readme"
+}
