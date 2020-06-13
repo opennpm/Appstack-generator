@@ -1,6 +1,6 @@
 {
   "name": "appstack-generator",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,10 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/opennpm/Appstack-generator.git"
+    "url": "git+https://github.com/opennpm/Appstack-generator.git",
+    "generatemean" : "generate --mean"
   },
   "bin": {
-    "generatemean": "index.js"
+    "generate": "index.js"
   },
   "keywords": [
     "bolier",

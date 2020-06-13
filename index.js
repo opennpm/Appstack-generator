@@ -1,51 +1,21 @@
 #!/usr/bin/env node
-const inquirer = require('./lib/utils/inquirer');
-const { exec } = require('child_process');
-const { stderr, stdout } = require('process');
-const { async } = require('rxjs/internal/scheduler/async');
-const directory = require('./lib/utils/files/directory');
-const { spawn } = require( 'child_process' );
-const chalk = require('chalk');
+const meanGenerator = require('./lib/utils/generator/meangenerator');
 
+var stackName;
 
-var projectname;
-var expressname;
-
-const name = async () => {
-  const res= await inquirer.askProjectName();
-  projectname = res.appName;
-  return projectname;
+const getFlags = async()=>{
+  var args = process.argv.splice(2);
+  stackName= args[0];
+  if(stackName == "--mean"){
+    meanGenerator.run();
+  }
+  else{
+    console.error("Currently we support generation of mean stack apps only ;");
+    console.log("generate --mean");
+  }
 }
 
 
-const run = async () => {
+getFlags();
 
-  
-  console.log(chalk.yellow("Generating Express Backend : "));
-
-  await name(); 
-  const dir =await directory.createDir(projectname);
-  // console.log(dir);
-
-  const changesDir =await directory.changeWorkingDir(projectname);
-  // console.log(changesDir);
-  // console.log(`Generating Express Backend: ${expressname}`);
-
-
-
-  const res= await inquirer.askExpressAppName();
-  expressname = res.appName;
-
-
-
-  require( "child_process" ).spawnSync( "sh", [ "-c", `express ${expressname}` ], { stdio: "inherit", stdin: "inherit" } );
-
-  console.log(chalk.yellow(`Generating Angular Frontend : `));
-
-  require( "child_process" ).spawnSync( "sh", [ "-c", "ng new" ], { stdio: "inherit", stdin: "inherit" } );
-
-}
-
-
-run()
 
