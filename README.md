@@ -3,14 +3,14 @@
 # Installation 
 
 ```bash 
-npm i appstack-generator```
+npm i appstack-generator
 ```
 
 # Usage 
 
 ## use the following command to generate mean stack app
 ```bash
-generatemean
+generate --mean
 ```
 
 ### Bug 
