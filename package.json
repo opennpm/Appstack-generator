@@ -8,10 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/opennpm/Appstack-generator.git"
+    "url": "git+https://github.com/opennpm/Appstack-generator.git",
+    "generatemean" : "generate --mean"
   },
   "bin": {
-    "generatemean": "index.js"
+    "generate": "index.js"
   },
   "keywords": [
     "bolier",
