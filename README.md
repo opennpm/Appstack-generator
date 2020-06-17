@@ -18,6 +18,8 @@ generate --mean
 generate --mern
 ```
 
+#### Also push your code to github after creating project by saying yes when asked for pemission.
+
 
 ### Bug 
 <a href="https://github.com/opennpm/Appstack-generator/issues/new?assignees=&labels=&template=bug_report.md&title=">Report here</a>
