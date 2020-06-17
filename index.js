@@ -9,6 +9,9 @@ const mernGenerator = require('./lib/utils/generator/merngenerator');
 const files = require('./lib/githubmanager/files');
 const github = require('./lib/githubmanager/github');
 const repo = require('./lib/githubmanager/repo');
+const inquirer = require('./lib/utils/inquirer');
+
+const gitinquirer = require('./lib/githubmanager/inquirer');
 
 var stackName;
 
@@ -25,12 +28,13 @@ console.log(
   )
 );
 
-if (files.directoryExists('.git')) {
-  console.log(chalk.red('Already a Git repository!'));
-  process.exit();
-}
+
 
 const getGithubToken = async () => {
+  if (files.directoryExists('.git')) {
+    console.log(chalk.red('Already a Git repository!'));
+    process.exit();
+  }
   // Fetch token from config store
   let token = github.getStoredGithubToken();
   if(token) {
@@ -93,11 +97,22 @@ const getFlags = async()=>{
   stackName= args[0];
   if(stackName == "--mean"){
     await meanGenerator.run();
-    run();
+    console.log(chalk.green("Your project is generated : "));
+    var res = await gitinquirer.askIfWantToPushToGithub();
+    if(res.permission){
+      run();
+    }
   }
   else if(stackName == "--mern"){
     await mernGenerator.run();
-    run();
+
+    console.log(chalk.green("Your project is generated : "));
+    
+    var res = await gitinquirer.askIfWantToPushToGithub();
+    if(res.permission){
+      run();
+    }
+
   }
   else{
     console.error("Currently we support generation of mean stack apps only ;");
